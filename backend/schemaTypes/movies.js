@@ -13,6 +13,16 @@ export const movies = {
             name: "genre",
             type: "reference",
             to: [{type: "genres"}]
+        },
+        {
+            title: "Filmplakat",
+            name: "movieposter",
+            type: "image"
+        },
+        {
+            title: "IMDB_ID",
+            name: "imdb_id",
+            type: "string"
         }
     ]
 }
