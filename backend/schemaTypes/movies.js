@@ -20,9 +20,9 @@ export const movies = {
             type: "image"
         },
         {
-            title: "IMDB ID",
-            name: "imdbid",
-            type: "url"
+            title: "IMDB_ID",
+            name: "imdb_id",
+            type: "string"
         }
     ]
 }
