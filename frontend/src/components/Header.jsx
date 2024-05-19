@@ -1,5 +1,5 @@
-import { PiUserCircle } from "react-icons/pi";
-import { BiCameraMovie } from "react-icons/bi";
+import { PiUserCircle } from "react-icons/pi"
+import { BiCameraMovie } from "react-icons/bi"
 
 export default function Header() {
     return (
