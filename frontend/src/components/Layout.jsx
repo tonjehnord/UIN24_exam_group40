@@ -1,9 +1,9 @@
 import Header from "./Header"
 
-export default function Layout({children}) {
+export default function Layout({children, user}) {
     return (
         <>
-        <Header />
+        <Header user={user}/>
         <main>
         {children}
         </main>
