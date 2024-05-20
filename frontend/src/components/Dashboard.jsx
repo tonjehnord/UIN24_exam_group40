@@ -1,7 +1,12 @@
-export default function Dashboard() {
+import { useParams } from 'react-router-dom'
+
+export default function Dashboard({user}) {
+
+    const { username } = useParams()
+
     return (
         <>
-            <h2>Forslag for Bruker1 og Bruker2</h2>
+            <h2>Forslag for {user} og {username}</h2>
             <section>
                 <h3>Catch Up!</h3>
                 <p>Dere har ANTALL filmer felles i ønskelistene deres.</p>

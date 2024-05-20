@@ -1,10 +1,32 @@
 import { MdFavorite } from "react-icons/md"
 import { LiaUserFriendsSolid } from "react-icons/lia"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import MovieCard from "./MovieCard"
 import { fetchUsersFromSanity } from "../../sanity/services/userServices"
+import { fetchMoviesFromSanity } from "../../sanity/services/movieServices"
 
 export default function Frontpage({user}) {
+
+    const [wishlistMovies, setWishlistMovies] = useState([])
+
+    useEffect(() => {
+        async function fetchWishlistMovies() {
+            try {
+                const users = await fetchUsersFromSanity()
+                const currentUser = users.find(u => u.username === user)
+                if (currentUser && currentUser.wishlist) {
+                    const wishlistMovies = await fetchMoviesFromSanity(currentUser.wishlist)
+                    setWishlistMovies(wishlistMovies)
+                }
+            } catch {
+                console.error("Error")
+            }
+        }
+        
+        fetchWishlistMovies()
+    }, [user])
+    
 
     const [otherUsers, setOtherUsers] = useState([])
 
@@ -15,7 +37,7 @@ export default function Frontpage({user}) {
                 const filteredUsers = users.filter(u => u.username !== user)
                 setOtherUsers(filteredUsers)
             } catch (error) {
-                console.error(error)
+                console.error("Error")
             }
         }
         fetchOtherUsers()
@@ -27,13 +49,15 @@ export default function Frontpage({user}) {
             <h2>Hei, {user}!</h2>
             <h3><MdFavorite /> Filmer jeg skal se!</h3>
             <p>Disse filmene ligger i ønskelisten din:</p>
-            <MovieCard />
+            <MovieCard movies={wishlistMovies}/>
         </section>
         <section>
             <h3><LiaUserFriendsSolid /> Jeg skal se sammen med</h3>
             <ul>
                 {otherUsers.map(otherUser => (
-                    <li key={otherUser._id}>{otherUser.username}</li>
+                    <li key={otherUser._id}>
+                         <Link to={`/dashboard/${otherUser.username}`}>{otherUser.username}</Link>
+                    </li>
                 ))}
             </ul>
         </section>

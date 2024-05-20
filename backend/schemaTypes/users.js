@@ -9,14 +9,14 @@ export const users = {
             type: "string"
         },
         {
-            title: "Favorittfilmer",
-            name: "favoritemovies",
+            title: "Ønskeliste",
+            name: "wishlist",
             type: "array",
             of: [{type: "reference", to: [{type: "movies"}]}]
         },
         {
-            title: "Ønskeliste",
-            name: "wishlist",
+            title: "Favorittfilmer",
+            name: "favoritemovies",
             type: "array",
             of: [{type: "reference", to: [{type: "movies"}]}]
         },
