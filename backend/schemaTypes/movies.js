@@ -16,8 +16,8 @@ export const movies = {
         {
             title: "Sjanger",
             name: "genre",
-            type: "reference",
-            to: [{type: "genres"}]
+            type: "array",
+            of: [{type: "reference", to: [{type: "genres"}]}]
         }
     ]
 }

@@ -9,7 +9,7 @@ export default function Header({user}) {
                 <ul>
                     <li className="logo"><Link to="/">What To See?</Link></li>
                     <li className="HomeButton"><Link to="/"><BiCameraMovie /> Hva skal jeg se?</Link></li>
-                    <li>Bla gjennom sjangere</li>
+                    <li><Link to="/genres">Bla gjennom sjangere</Link></li>
                     <li><PiUserCircle /> {user}</li>
                 </ul>
             </nav>

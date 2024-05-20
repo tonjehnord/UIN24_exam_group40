@@ -22,7 +22,7 @@ export default function Frontpage({ user }) {
                     setWishlistMovies(wishlistMovies)
                 }
             } catch (error) {
-                console.error("Error")
+                console.error("Error", error)
             }
         }
         fetchWishlistMovies()
@@ -35,7 +35,7 @@ export default function Frontpage({ user }) {
                 const filteredUsers = users.filter(u => u.username !== user)
                 setOtherUsers(filteredUsers)
             } catch (error) {
-                console.error("Error")
+                console.error("Error", error)
             }
         }
         fetchOtherUsers()
