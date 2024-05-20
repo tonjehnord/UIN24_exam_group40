@@ -49,12 +49,12 @@ export default function MovieCard({ movies }) {
 
     return (
         <>
-            {movieDetails.map(movie => (
-                <article key={movie._id}>
-                    <img src={movie.details.primaryImage?.url} alt={movie.movietitle} />
-                    <p><Link to={`https://www.imdb.com/title/${movie.imdb_id}`} target="_blank">{movie.movietitle}</Link></p>
-                </article>
-            ))}
+        {movieDetails.map(movie => (
+            <article key={movie._id}>
+                <img src={movie.details.primaryImage?.url} alt={movie.movietitle} />
+                <p><Link to={`https://www.imdb.com/title/${movie.imdb_id}`} target="_blank">{movie.movietitle}</Link></p>
+            </article>
+        ))}
         </>
     )
 }

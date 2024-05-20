@@ -31,11 +31,11 @@ export default function Login({setUser}) {
 
     return (
         <>
-            <h1>Hvem skal se i dag?</h1>
-            <p>Velg bruker</p>
-            {users.map((user) => (
-                <button key={user._id} onClick={() => handleUserLogin(user.username)}>{user.username}</button>
-            ))}
+        <h1>Hvem skal se i dag?</h1>
+        <p>Velg bruker</p>
+        {users.map((user) => (
+            <button key={user._id} onClick={() => handleUserLogin(user.username)}>{user.username}</button>
+        ))}
         </>
     )
 }

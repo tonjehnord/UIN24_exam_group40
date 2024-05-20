@@ -8,7 +8,7 @@ export async function fetchUsersFromSanity() {
         favoritemovies,
         favoritegenres}`)
     return users
-  }
+}
 
 /*export async function fetchUserFromSanity(userid) {
     const user = await client.fetch(`*[_type == "users" && _id == $userid]{
