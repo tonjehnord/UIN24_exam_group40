@@ -6,6 +6,7 @@ import { fetchMoviesFromSanity } from "../../sanity/services/movieServices"
 import { fetchGenresFromSanity } from "../../sanity/services/genreServices"
 
 export default function Dashboard({ user }) {
+   
     const { username } = useParams()
 
     const [commonWishlist, setCommonWishlist] = useState([])

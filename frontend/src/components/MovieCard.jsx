@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 export default function MovieCard({ movies }) {
     
     const apiKey = process.env.REACT_APP_API_KEY
+    
     const [movieDetails, setMovieDetails] = useState([])
 
     const fetchMoviesFromAPI = async (imdb_id) => {

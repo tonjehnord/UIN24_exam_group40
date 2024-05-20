@@ -16,7 +16,7 @@ export default function Frontpage({ user }) {
             try {
                 const users = await fetchUsersFromSanity()
                 const currentUser = users.find(u => u.username === user)
-                if (currentUser && currentUser.wishlist /*&& currentUser.wishlist.length > 0*/) {
+                if (currentUser && currentUser.wishlist) {
                     const wishlistMovieIds = currentUser.wishlist.map(ref => ref._ref)
                     const wishlistMovies = await fetchMoviesFromSanity(wishlistMovieIds)
                     setWishlistMovies(wishlistMovies)

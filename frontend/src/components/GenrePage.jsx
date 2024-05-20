@@ -5,17 +5,16 @@ import { fetchGenresFromSanity } from '../../sanity/services/genreServices'
 import { fetchMoviesByGenre } from '../../sanity/services/movieServices'
 
 export default function GenrePage() {
+    
     const { genre } = useParams()
 
     const [movies, setMovies] = useState([])
-    const [theGenre, setTheGenre] = useState(null)
 
     useEffect(() => {
         const fetchGenreData = async () => {
             try {
                 const genres = await fetchGenresFromSanity()
                 const selectedGenre = genres.find(g => g.genrename.toLowerCase() === genre.toLowerCase())
-                setTheGenre(selectedGenre)
 
                 if (selectedGenre) {
                     const movies = await fetchMoviesByGenre(selectedGenre._id)

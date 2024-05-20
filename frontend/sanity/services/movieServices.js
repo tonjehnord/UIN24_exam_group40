@@ -9,11 +9,11 @@ export async function fetchMoviesFromSanity(movieids) {
     return movies
 }
 
-export async function fetchMoviesByGenre(genreId) {
-    const movies = await client.fetch(`*[_type == "movies" && references($genreId)]{
+export async function fetchMoviesByGenre(genreid) {
+    const movies = await client.fetch(`*[_type == "movies" && references($genreid)]{
         _id, 
         movietitle,
         imdb_id
-    }`, { genreId })
+    }`, { genreid })
     return movies
 }
