@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import MovieCard from './MovieCard'
 import { fetchUsersFromSanity } from "../../sanity/services/userServices"
@@ -10,6 +10,7 @@ export default function Dashboard({ user }) {
 
     const [commonWishlist, setCommonWishlist] = useState([])
     const [commonFavorites, setCommonFavorites] = useState([])
+    const [commonGenres, setCommonGenres] = useState([])
 
     useEffect(() => {
         const fetchCommonWishlistMovies = async () => {
@@ -25,7 +26,7 @@ export default function Dashboard({ user }) {
                     const commonWishlistMovies = currentUserWishlist.filter(movie => otherUserWishlist.some(otherMovie => otherMovie._id === movie._id))
                     setCommonWishlist(commonWishlistMovies);
                 }
-            } catch {
+            } catch (error) {
                 console.error("Error", error)
             }
         }
@@ -43,13 +44,34 @@ export default function Dashboard({ user }) {
                     const commonFavoritesMovies = currentUserFavorites.filter(movie => otherUserFavorites.some(otherMovie => otherMovie._id === movie._id))
                     setCommonFavorites(commonFavoritesMovies);
                 }
-            } catch {
+            } catch (error) {
                 console.error("Error", error)
             }
         }
+
+        const fetchCommonGenres = async () => {
+            try {
+                const users = await fetchUsersFromSanity()
+                const currentUser = users.find(u => u.username === user)
+                const otherUser = users.find(u => u.username === username)
+    
+                if (currentUser && otherUser && currentUser.favoritegenres && otherUser.favoritegenres) {
+                    const currentUserGenres = currentUser.favoritegenres.map(genre => genre.genrename)
+                    const otherUserGenres = otherUser.favoritegenres.map(genre => genre.genrename)
+                    const commonGenres = currentUserGenres.filter(genre => otherUserGenres.includes(genre))
+                    setCommonGenres(commonGenres);
+                }
+            } catch (error) {
+                console.error("Error", error)
+            }
+        }
+
         fetchCommonWishlistMovies()
         fetchCommonFavoritesMovies()
+        fetchCommonGenres()
     }, [user, username])
+
+    console.log(commonGenres)
 
     return (
         <>
@@ -67,6 +89,11 @@ export default function Dashboard({ user }) {
             <section>
                 <h3>Utforsk!</h3>
                 <p>Dere liker begge disse sjangerne, sjekk hvilke filmer som finnes å velge mellom:</p>
+                <ul>
+                    {commonGenres.map((genre, index) => (
+                        <li key={index}>{genre}</li>
+                    ))}
+                </ul>
             </section>
         </>
     )

@@ -1,4 +1,4 @@
-import { MdFavorite } from "react-icons/md"
+import { MdOutlineMovieFilter } from "react-icons/md"
 import { LiaUserFriendsSolid } from "react-icons/lia"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
@@ -45,7 +45,7 @@ export default function Frontpage({ user }) {
         <>
             <section>
                 <h2>Hei, {user}!</h2>
-                <h3><MdFavorite /> Filmer jeg skal se!</h3>
+                <h3><MdOutlineMovieFilter /> Filmer jeg skal se!</h3>
                 <p>Disse filmene ligger i ønskelisten din:</p>
                 <MovieCard movies={wishlistMovies} />
             </section>

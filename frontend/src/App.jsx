@@ -6,6 +6,7 @@ import Frontpage from './components/Frontpage'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
 import Genres from './components/Genres'
+import GenrePage from './components/GenrePage'
 
 function App() {
 
@@ -27,7 +28,8 @@ function App() {
           <Routes>
             <Route index element={<Frontpage user={user}/>} />
             <Route path="/dashboard/:username" element={<Dashboard user={user}/>} />
-            <Route path="/genres" element={<Genres />} />
+            <Route path="/genres" element={<Genres user={user}/>} />
+            <Route path="/genres/:genre" element={<GenrePage />} />
           </Routes>
         </Layout>
       )}
