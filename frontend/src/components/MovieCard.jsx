@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { fetchMoviesFromSanity } from '../../sanity/services/movieServices'
 
 export default function MovieCard({ movies }) {
-   
-    const [movieDetails, setMovieDetails] = useState([])
-
+    
     const apiKey = process.env.REACT_APP_API_KEY
+    const [movieDetails, setMovieDetails] = useState([])
 
     const fetchMoviesFromAPI = async (imdb_id) => {
         const url = `https://moviesdatabase.p.rapidapi.com/titles/${imdb_id}`
@@ -21,8 +19,9 @@ export default function MovieCard({ movies }) {
             const response = await fetch(url, options)
             const data = await response.json()
             return data.results
-        } catch {
-            console.error("Error")
+        } catch (error) {
+            console.error("Error fetching movie from API", error)
+            return null
         }
     }
 
@@ -31,20 +30,18 @@ export default function MovieCard({ movies }) {
             try {
                 const details = await Promise.all(
                     movies.map(async (movie) => {
-                        const sanityMovie = await fetchMoviesFromSanity(movie._id)
                         const apiMovieDetails = await fetchMoviesFromAPI(movie.imdb_id)
                         return {
                             ...movie,
                             details: {
-                                ...sanityMovie.details,
-                                primaryImage: apiMovieDetails.primaryImage
+                                primaryImage: apiMovieDetails?.primaryImage || null
                             }
                         }
                     })
                 )
                 setMovieDetails(details)
-            } catch {
-                console.error("Error")
+            } catch (error) {
+                console.error("Error", error)
             }
         }
         fetchMovieDetails()
@@ -55,7 +52,7 @@ export default function MovieCard({ movies }) {
             {movieDetails.map(movie => (
                 <article key={movie._id}>
                     <img src={movie.details.primaryImage?.url} alt={movie.movietitle} />
-                    <Link to={`https://www.imdb.com/title/${movie.imdb_id}`} target="_blank">{movie.movietitle}</Link>
+                    <p><Link to={`https://www.imdb.com/title/${movie.imdb_id}`} target="_blank">{movie.movietitle}</Link></p>
                 </article>
             ))}
         </>

@@ -4,6 +4,7 @@ export async function fetchUsersFromSanity() {
     const users = await client.fetch(`*[_type == "users"]{
         _id, 
         username,
-        wishlist}`)
+        wishlist,
+        favoritemovies}`)
     return users
   }
