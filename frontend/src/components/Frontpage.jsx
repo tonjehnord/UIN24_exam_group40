@@ -21,7 +21,7 @@ export default function Frontpage({user}) {
                     const wishlistMovies = await fetchMoviesFromSanity(wishlistMovieIds)
                     setWishlistMovies(wishlistMovies)
                 }
-            } catch (error) {
+            } catch {
                 console.error("Error", error)
             }
         }
@@ -34,7 +34,7 @@ export default function Frontpage({user}) {
                 const users = await fetchUsersFromSanity()
                 const filteredUsers = users.filter(u => u.username !== user)
                 setOtherUsers(filteredUsers)
-            } catch (error) {
+            } catch {
                 console.error("Error", error)
             }
         }

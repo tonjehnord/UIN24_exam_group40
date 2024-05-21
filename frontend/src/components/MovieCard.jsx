@@ -20,7 +20,7 @@ export default function MovieCard({movies}) {
             const response = await fetch(url, options)
             const data = await response.json()
             return data.results
-        } catch (error) {
+        } catch {
             console.error("Error fetching movie from API", error)
             return null
         }
@@ -41,7 +41,7 @@ export default function MovieCard({movies}) {
                     })
                 )
                 setMovieDetails(details)
-            } catch (error) {
+            } catch {
                 console.error("Error", error)
             }
         }

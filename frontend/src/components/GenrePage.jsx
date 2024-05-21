@@ -20,7 +20,7 @@ export default function GenrePage() {
                     const movies = await fetchMoviesByGenre(selectedGenre._id)
                     setMovies(movies)
                 }
-            } catch (error) {
+            } catch {
                 console.error("Error", error)
             }
         }

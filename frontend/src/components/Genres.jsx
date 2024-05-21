@@ -15,7 +15,7 @@ export default function Genres({user}) {
             try {
                 const genresData = await fetchGenresFromSanity()
                 setGenres(genresData.map(genre => genre.genrename))
-            } catch (error) {
+            } catch {
                 console.error("Error", error)
             }
         }
@@ -34,7 +34,7 @@ export default function Genres({user}) {
                         setFavoriteGenres(userFavoriteGenres)
                     }
                 }
-            } catch (error) {
+            } catch {
                 console.error("Error", error)
             }
         }
@@ -59,10 +59,8 @@ export default function Genres({user}) {
                 const result = await updateFavoriteGenres(currentUserId, updatedFavoriteGenreRefs)
                 if (result === "Success") {
                     setFavoriteGenres(updatedFavoriteGenres)
-                } else {
-                    console.error("Error updating favorite genres:", result)
-                }
-            } catch (error) {
+                } 
+            } catch {
                 console.error("Error", error)
             }
         }

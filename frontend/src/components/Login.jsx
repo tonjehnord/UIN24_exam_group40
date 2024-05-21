@@ -12,7 +12,7 @@ export default function Login({setUser}) {
             try {
                 const users = await fetchUsersFromSanity()
                 setUsers(users)
-            } catch (error) {
+            } catch {
                 console.error("Error", error)
             }
         }
@@ -24,7 +24,7 @@ export default function Login({setUser}) {
             setUser(user)
             localStorage.setItem("loggedInUser", user)
             navigate('/')
-        } catch (error) {
+        } catch {
             console.error("Error", error)
         }
     }

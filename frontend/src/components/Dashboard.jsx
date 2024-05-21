@@ -43,7 +43,7 @@ export default function Dashboard({user}) {
                         setCommonGenres(commonGenres)
                     }
                 }
-            } catch (error) {
+            } catch {
                 console.error("Error", error)
             }
         }
