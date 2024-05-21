@@ -1,17 +1,21 @@
 import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import MovieCard from './MovieCard'
+import CrossComparison from './CrossComparison'
 import { fetchUsersFromSanity } from "../../sanity/services/userServices"
 import { fetchMoviesFromSanity } from "../../sanity/services/movieServices"
 import { fetchGenresFromSanity } from "../../sanity/services/genreServices"
 
-export default function Dashboard({ user }) {
-   
+export default function Dashboard({user}) {
     const { username } = useParams()
 
     const [commonWishlist, setCommonWishlist] = useState([])
     const [commonFavorites, setCommonFavorites] = useState([])
     const [commonGenres, setCommonGenres] = useState([])
+    const [userFavorites, setUserFavorites] = useState([])
+    const [userWishlist, setUserWishlist] = useState([])
+    const [otherUserFavorites, setOtherUserFavorites] = useState([])
+    const [otherUserWishlist, setOtherUserWishlist] = useState([])
 
     useEffect(() => {
         const fetchCommonData = async () => {
@@ -25,14 +29,18 @@ export default function Dashboard({ user }) {
                         const currentUserWishlist = await fetchMoviesFromSanity(currentUser.wishlist.map(ref => ref._ref))
                         const otherUserWishlist = await fetchMoviesFromSanity(otherUser.wishlist.map(ref => ref._ref))
                         const commonWishlistMovies = currentUserWishlist.filter(movie => otherUserWishlist.some(otherMovie => otherMovie._id === movie._id))
-                        setCommonWishlist(commonWishlistMovies);
+                        setCommonWishlist(commonWishlistMovies)
+                        setUserWishlist(currentUser.wishlist)
+                        setOtherUserWishlist(otherUser.wishlist)
                     }
 
                     if (currentUser.favoritemovies && otherUser.favoritemovies) {
                         const currentUserFavorites = await fetchMoviesFromSanity(currentUser.favoritemovies.map(ref => ref._ref))
                         const otherUserFavorites = await fetchMoviesFromSanity(otherUser.favoritemovies.map(ref => ref._ref))
                         const commonFavoritesMovies = currentUserFavorites.filter(movie => otherUserFavorites.some(otherMovie => otherMovie._id === movie._id))
-                        setCommonFavorites(commonFavoritesMovies);
+                        setCommonFavorites(commonFavoritesMovies)
+                        setUserFavorites(currentUser.favoritemovies)
+                        setOtherUserFavorites(otherUser.favoritemovies)
                     }
 
                     if (currentUser.favoritegenres && otherUser.favoritegenres) {
@@ -72,6 +80,7 @@ export default function Dashboard({ user }) {
                 ))}
             </ul>
         </section>
+        <CrossComparison userFavorites={userFavorites} otherUserWishlist={otherUserWishlist} otherUserFavorites={otherUserFavorites} userWishlist={userWishlist} />
         </>
     )
 }

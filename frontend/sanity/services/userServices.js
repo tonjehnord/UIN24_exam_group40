@@ -10,14 +10,6 @@ export async function fetchUsersFromSanity() {
     return users
 }
 
-export async function fetchUserFromSanity(userid) {
-    const user = await client.fetch(`*[_type == "users" && _id == $userid]{
-        _id, 
-        favoritegenres
-    }`, { userid })
-    return user
-}
-
 export async function updateFavoriteGenres(userid, favoritegenres) {
     const result = await updateClient
     .patch(userid)
