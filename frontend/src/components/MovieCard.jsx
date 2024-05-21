@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function MovieCard({movies}) {
     
-    const apiKey = process.env.REACT_APP_API_KEY
+    const apiKey = "622064979dmshb793aad339faa93p144338jsn84422a530db4"
     
     const [movieDetails, setMovieDetails] = useState([])
 
