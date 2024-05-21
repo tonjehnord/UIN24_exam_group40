@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
 import { useState } from 'react'
-import './App.css'
 import Layout from './components/Layout'
 import Frontpage from './components/Frontpage'
 import Login from './components/Login'

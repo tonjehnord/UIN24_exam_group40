@@ -11,10 +11,13 @@
       
       button {
         margin-left: auto;
+        color: #fff;
       }
       
       a {
-        color: black;
+        color: #000;
+        text-decoration: inherit;
+        font-weight: 500;
   
         &:hover {
           color: grey;
