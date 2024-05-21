@@ -25,14 +25,14 @@ export default function Dashboard({user}) {
                         const currentUserWishlist = await fetchMoviesFromSanity(currentUser.wishlist.map(ref => ref._ref))
                         const otherUserWishlist = await fetchMoviesFromSanity(otherUser.wishlist.map(ref => ref._ref))
                         const commonWishlistMovies = currentUserWishlist.filter(movie => otherUserWishlist.some(otherMovie => otherMovie._id === movie._id))
-                        setCommonWishlist(commonWishlistMovies);
+                        setCommonWishlist(commonWishlistMovies)
                     }
 
                     if (currentUser.favoritemovies && otherUser.favoritemovies) {
                         const currentUserFavorites = await fetchMoviesFromSanity(currentUser.favoritemovies.map(ref => ref._ref))
                         const otherUserFavorites = await fetchMoviesFromSanity(otherUser.favoritemovies.map(ref => ref._ref))
                         const commonFavoritesMovies = currentUserFavorites.filter(movie => otherUserFavorites.some(otherMovie => otherMovie._id === movie._id))
-                        setCommonFavorites(commonFavoritesMovies);
+                        setCommonFavorites(commonFavoritesMovies)
                     }
 
                     if (currentUser.favoritegenres && otherUser.favoritegenres) {
