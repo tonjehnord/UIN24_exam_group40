@@ -1,9 +1,9 @@
 import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import MovieCard from './MovieCard'
-import { fetchUsersFromSanity } from "../../sanity/services/userServices"
-import { fetchMoviesFromSanity } from "../../sanity/services/movieServices"
-import { fetchGenresFromSanity } from "../../sanity/services/genreServices"
+import { fetchUsersFromSanity } from '../../sanity/services/userServices'
+import { fetchMoviesFromSanity } from '../../sanity/services/movieServices'
+import { fetchGenresFromSanity } from '../../sanity/services/genreServices'
 
 export default function Dashboard({user}) {
    

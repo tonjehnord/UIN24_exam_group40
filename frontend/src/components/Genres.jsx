@@ -1,8 +1,8 @@
-import { MdFavorite, MdFavoriteBorder } from "react-icons/md"
-import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
-import { fetchUsersFromSanity, updateFavoriteGenres } from "../../sanity/services/userServices"
-import { fetchGenresFromSanity } from "../../sanity/services/genreServices"
+import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { fetchUsersFromSanity, updateFavoriteGenres } from '../../sanity/services/userServices'
+import { fetchGenresFromSanity } from '../../sanity/services/genreServices'
 
 export default function Genres({user}) {
    

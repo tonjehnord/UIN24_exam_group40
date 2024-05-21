@@ -1,10 +1,10 @@
-import { MdOutlineMovieFilter } from "react-icons/md"
-import { LiaUserFriendsSolid } from "react-icons/lia"
-import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
-import MovieCard from "./MovieCard"
-import { fetchUsersFromSanity } from "../../sanity/services/userServices"
-import { fetchMoviesFromSanity } from "../../sanity/services/movieServices"
+import { MdOutlineMovieFilter } from 'react-icons/md'
+import { LiaUserFriendsSolid } from 'react-icons/lia'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import MovieCard from './MovieCard'
+import { fetchUsersFromSanity } from '../../sanity/services/userServices'
+import { fetchMoviesFromSanity } from '../../sanity/services/movieServices'
 
 export default function Frontpage({user}) {
     

@@ -1,6 +1,6 @@
-import { PiUserCircle } from "react-icons/pi"
-import { BiCameraMovie } from "react-icons/bi"
-import { Link } from "react-router-dom"
+import { PiUserCircle } from 'react-icons/pi'
+import { BiCameraMovie } from 'react-icons/bi'
+import { Link } from 'react-router-dom'
 
 export default function Header({user}) {
     return (

@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { fetchUsersFromSanity } from "../../sanity/services/userServices"
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { fetchUsersFromSanity } from '../../sanity/services/userServices'
 
 export default function Login({setUser}) {
 
