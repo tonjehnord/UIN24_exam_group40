@@ -44,20 +44,22 @@ export default function Frontpage({ user }) {
     return (
         <>
         <section>
-            <h2>Hei, {user}!</h2>
-            <h3><MdOutlineMovieFilter /> Filmer jeg skal se!</h3>
-            <p>Disse filmene ligger i ønskelisten din:</p>
-            <MovieCard movies={wishlistMovies} />
-        </section>
-        <section>
-            <h3><LiaUserFriendsSolid /> Jeg skal se sammen med</h3>
-            <ul>
-                {otherUsers.map(otherUser => (
-                    <li key={otherUser._id}>
-                        <Link to={`/dashboard/${otherUser.username}`}>{otherUser.username}</Link>
-                    </li>
-                ))}
-            </ul>
+            <article className="wishMovies">
+                <h2 className="text">Hei, {user}!</h2>
+                <h3 className="text"><MdOutlineMovieFilter /> Filmer jeg skal se!</h3>
+                <p className="text">Disse filmene ligger i ønskelisten din:</p>
+                <MovieCard movies={wishlistMovies} />
+            </article>
+            <article className="watchTogether">
+                <h3><LiaUserFriendsSolid /> Jeg skal se sammen med</h3>
+                <ul>
+                    {otherUsers.map(otherUser => (
+                        <li key={otherUser._id}>
+                            <Link to={`/dashboard/${otherUser.username}`}>{otherUser.username}</Link>
+                        </li>
+                    ))}
+                </ul>
+            </article>
         </section>
         </>
     )

@@ -54,16 +54,17 @@ export default function Dashboard({ user }) {
         <>
         <h2>Forslag for {user} og {username}</h2>
         <section>
-            <h3>Catch Up!</h3>
-            <p>Dere har {commonWishlist.length} filmer felles i ønskelistene deres.</p>
-            <MovieCard movies={commonWishlist}/>
-        </section>
-        <section>
+            <article>
+                <h3>Catch Up!</h3>
+                <p>Dere har {commonWishlist.length} filmer felles i ønskelistene deres.</p>
+                <MovieCard movies={commonWishlist}/>
+            </article>
+            <article>
             <h3>Go Safe!</h3>
             <p>Dere har {commonFavorites.length} filmer felles i favorittlisten deres.</p>
             <MovieCard movies={commonFavorites} />
-        </section>
-        <section>
+            </article>
+            <article>
             <h3>Utforsk!</h3>
             <p>Dere liker begge disse sjangerne, sjekk hvilke filmer som finnes å velge mellom:</p>
             <ul>
@@ -71,6 +72,7 @@ export default function Dashboard({ user }) {
                     <li key={index}><Link to={`/genres/${genre.toLowerCase()}`}>{genre}</Link></li>
                 ))}
             </ul>
+            </article>
         </section>
         </>
     )

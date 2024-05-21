@@ -1,0 +1,38 @@
+header {
+    background-color: rgb(52, 27, 52);
+    color: #fff;
+    padding: 0.5rem;
+
+    nav {     
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+           
+            .logo {
+                flex-grow: 1;
+                font-size: 24px;
+                margin-right: auto;
+            }
+
+            li {
+                padding: 10px 20px;
+                display: flex;
+                align-items: center;
+
+                a {
+                    color: #fff;
+                }
+            }
+            
+            .homeButton {
+                background-color: pink;
+                margin-left: 20px;
+                
+                a {
+                    color: rgb(52, 27, 52);
+                }
+            }
+        }
+    }
+}

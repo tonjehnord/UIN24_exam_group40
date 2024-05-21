@@ -1,32 +1,49 @@
-#root{
+@import 'header','front','genres','movie';
+
+#root {
+    min-height: 800px;
     width: 100%;
-    max-height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #fff; 
+    background-color: #fff;
     color: #000;
-
-    header{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        justify-content: right;
-        background-color: rgb(52, 27, 52);
-        color: #fff;
-
-        nav{
-            display: flex;
-            gap: 2rem;
-            
-            ul{
-                display: flex;
-                flex-wrap: wrap;
-                margin: 0;
-                padding: 2rem;
-                list-style: none;
-                gap: 1rem;
-            }
-        }
-    }
-}
+  }
+  
+  main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem 3rem;
+  }
+  
+  button {
+    margin-right: 0.5rem;
+    margin-left: 1rem;
+  }
+  
+  h1 {
+    margin-left: 1rem;
+  }
+  
+  p {
+    margin-left: 1rem;
+  }
+  
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1500px;
+    gap: 4rem;
+  }
+  
+  article {
+    max-width: 350px;
+  }
+  
+  footer {
+    bottom: 0;
+    padding: 4rem;
+    background-color: pink;
+    color: rgb(52, 27, 52);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

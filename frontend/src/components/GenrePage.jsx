@@ -31,7 +31,6 @@ export default function GenrePage() {
         <>
         <h2>Sjanger: {genre.charAt(0).toUpperCase() + genre.slice(1)} ({movies.length} filmer)</h2>
         <section>
-            <h3>Artikler</h3>
             <MovieCard movies={movies} />
         </section>
         </>

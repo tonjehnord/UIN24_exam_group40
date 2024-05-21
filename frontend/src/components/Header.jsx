@@ -8,7 +8,7 @@ export default function Header({user}) {
             <nav>
                 <ul>
                     <li className="logo"><Link to="/">What To See?</Link></li>
-                    <li className="HomeButton"><Link to="/"><BiCameraMovie /> Hva skal jeg se?</Link></li>
+                    <li className="homeButton"><Link to="/"><BiCameraMovie /> Hva skal jeg se?</Link></li>
                     <li><Link to="/genres">Bla gjennom sjangere</Link></li>
                     <li><PiUserCircle /> {user}</li>
                 </ul>

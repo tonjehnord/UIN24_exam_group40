@@ -1,0 +1,19 @@
+.wishMovies {
+    display: flex;
+    flex-wrap: wrap; 
+    max-width: 700px;
+    gap: 0.5rem;
+  }
+
+.text {
+    width: 100%;
+ }
+  
+.watchTogether {
+    background-color: lightgrey; 
+    padding: 20px 30px;
+    max-height: 150px;
+    width: 260px;
+    margin-top: 220px;
+    align-self: flex-start;
+}

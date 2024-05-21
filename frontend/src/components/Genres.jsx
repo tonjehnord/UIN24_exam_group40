@@ -71,7 +71,7 @@ export default function Genres({ user }) {
     return (
         <>
         <h2>Sjangere</h2>
-        <ul>
+        <ul className="genres">
             {genres && genres.filter(genre => genre).map((genre, index) => {
                 const isFavorite = favoriteGenres.includes(genre)
                 return (
