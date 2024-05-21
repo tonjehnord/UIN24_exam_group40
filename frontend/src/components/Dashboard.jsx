@@ -5,7 +5,7 @@ import { fetchUsersFromSanity } from "../../sanity/services/userServices"
 import { fetchMoviesFromSanity } from "../../sanity/services/movieServices"
 import { fetchGenresFromSanity } from "../../sanity/services/genreServices"
 
-export default function Dashboard({ user }) {
+export default function Dashboard({user}) {
    
     const { username } = useParams()
 

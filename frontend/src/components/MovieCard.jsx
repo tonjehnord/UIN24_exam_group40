@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-export default function MovieCard({ movies }) {
+export default function MovieCard({movies}) {
     
     const apiKey = process.env.REACT_APP_API_KEY
     

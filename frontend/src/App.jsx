@@ -12,27 +12,19 @@ function App() {
 
   const [user, setUser] = useState("")
 
-  //Lagrer brukeren som er logget inn, refresher man hopper man ikke ut til innlogginsside
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem('loggedInUser')
-    if (loggedInUser) {
-      setUser(loggedInUser)
-    }
-  }, [])
-
   return (
     <>
-      {!user && <Login setUser={setUser} />}
-      {user && (
-        <Layout user={user}>
-          <Routes>
-            <Route index element={<Frontpage user={user}/>} />
-            <Route path="/dashboard/:username" element={<Dashboard user={user}/>} />
-            <Route path="/genres" element={<Genres user={user}/>} />
-            <Route path="/genres/:genre" element={<GenrePage />} />
-          </Routes>
-        </Layout>
-      )}
+    {!user && <Login setUser={setUser} />}
+    {user && (
+      <Layout user={user}>
+        <Routes>
+          <Route index element={<Frontpage user={user}/>} />
+          <Route path="/dashboard/:username" element={<Dashboard user={user}/>} />
+          <Route path="/genres" element={<Genres user={user}/>} />
+          <Route path="/genres/:genre" element={<GenrePage />} />
+        </Routes>
+      </Layout>
+    )}
     </>
   )
 }

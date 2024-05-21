@@ -4,8 +4,8 @@ import { Link } from "react-router-dom"
 import { fetchUsersFromSanity, updateFavoriteGenres } from "../../sanity/services/userServices"
 import { fetchGenresFromSanity } from "../../sanity/services/genreServices"
 
-export default function Genres({ user }) {
-    
+export default function Genres({user}) {
+   
     const [genres, setGenres] = useState([])
     const [favoriteGenres, setFavoriteGenres] = useState([])
     const [currentUserId, setCurrentUserId] = useState(null)

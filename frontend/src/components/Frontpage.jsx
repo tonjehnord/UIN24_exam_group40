@@ -6,7 +6,7 @@ import MovieCard from "./MovieCard"
 import { fetchUsersFromSanity } from "../../sanity/services/userServices"
 import { fetchMoviesFromSanity } from "../../sanity/services/movieServices"
 
-export default function Frontpage({ user }) {
+export default function Frontpage({user}) {
     
     const [wishlistMovies, setWishlistMovies] = useState([])
     const [otherUsers, setOtherUsers] = useState([])
