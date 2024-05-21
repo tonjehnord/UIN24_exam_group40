@@ -56,13 +56,13 @@ export default function Dashboard({ user }) {
         <section>
             <article>
                 <h3>Catch Up!</h3>
-                <p>Dere har {commonWishlist.length} filmer felles i ønskelistene deres.</p>
+                <p>Dere har {commonWishlist.length} {commonWishlist.length === 1 ? 'film' : 'filmer'} felles i ønskelistene deres.</p>
                 <MovieCard movies={commonWishlist}/>
             </article>
             <article>
-            <h3>Go Safe!</h3>
-            <p>Dere har {commonFavorites.length} filmer felles i favorittlisten deres.</p>
-            <MovieCard movies={commonFavorites} />
+                <h3>Go Safe!</h3>
+                <p>Dere har {commonFavorites.length} {commonFavorites.length === 1 ? 'film' : 'filmer'} felles i favorittlisten deres.</p>
+                <MovieCard movies={commonFavorites} />
             </article>
             <article>
             <h3>Utforsk!</h3>

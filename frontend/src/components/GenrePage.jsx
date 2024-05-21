@@ -29,7 +29,7 @@ export default function GenrePage() {
 
     return (
         <>
-        <h2>Sjanger: {genre.charAt(0).toUpperCase() + genre.slice(1)} ({movies.length} filmer)</h2>
+        <h2>Sjanger: {genre.charAt(0).toUpperCase() + genre.slice(1)} ({movies.length} {movies.length === 1 ? 'film' : 'filmer'})</h2>
         <section>
             <MovieCard movies={movies} />
         </section>
